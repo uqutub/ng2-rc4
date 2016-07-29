@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Hero Form</h1>
+    <form novalidate #loginfrm="ngForm" (ngSubmit)="login(loginfrm.valid, loginfrm.value)">
+       <div class="form-group">
+            <label for="name">Email</label>
+            <input type="text" class="form-control" #em="ngModel" [ngModel]="e" name="username" required placeholder="usuf52@gmail.com" />
+            <small class="invalid-test" [hidden]="em.valid || (em.pristine && !loginfrm._submitted)">
+                    Email is required and format should be <i>john@doe.com</i>.
+            </small>
+        </div>
+         <div class="form-group">
+            <label for="alterEgo">Password</label>
+            <input type="text" class="form-control" required #password="ngModel" [ngModel]="passowrd" name="password" placeholder="password" />
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!loginfrm.valid">Submit</button>
+    </form>
+</div>
